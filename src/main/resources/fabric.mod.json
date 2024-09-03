@@ -1,34 +1,32 @@
 {
-	"schemaVersion": 1,
-	"id": "xenon",
-	"version": "${version}",
-	"name": "Xenon",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/xenon/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"definedentity.xenon.Xenon"
-		]
-	},
-	"mixins": [
-		"xenon.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16.3",
-		"minecraft": "~1.18.2",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "xenon",
+  "version": "${version}",
+  "name": "Xenon",
+  "description": "Xenon is a library of systems to help make various aspects of minecraft modding easier.\nIt contains libraries for 3D math and transformations, model rendering, packets, config, colours, asm and a few other things...",
+  "authors": [
+    "ChickenBones",
+    "covers1624",
+    "definedentity"
+  ],
+  "contact": {
+    "sources": "https://github.com/definedentity/xenon"
+  },
+  "license": "LGPL-2.1",
+  "icon": "assets/xenon/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "definedentity.xenon.Xenon"
+    ]
+  },
+  "mixins": [
+    "xenon.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.18.2",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
 }
