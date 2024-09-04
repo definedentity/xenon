@@ -32,8 +32,8 @@ dependencies {
 
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "net.covers1624:Quack:${project.quack_version}"
-	modImplementation "org.joml:joml:${joml_version}"
+	include(modApi("net.covers1624:Quack:${project.quack_version}"))
+	include(modApi("org.joml:joml:${joml_version}"))
 }
 
 processResources {
