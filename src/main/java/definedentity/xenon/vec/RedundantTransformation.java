@@ -4,16 +4,20 @@ public class RedundantTransformation extends Transformation {
 
     public static final RedundantTransformation INSTANCE = new RedundantTransformation();
 
-    private RedundantTransformation() {}
+    private RedundantTransformation() {
+    }
 
     @Override
-    public void apply(Vector3 vec) {}
+    public void apply(Vector3 vec) {
+    }
 
     @Override
-    public void apply(Matrix4 mat) {}
+    public void apply(Matrix4 mat) {
+    }
 
     @Override
-    public void applyN(Vector3 normal) {}
+    public void applyN(Vector3 normal) {
+    }
 
     @Override
     public Transformation at(Vector3 point) {

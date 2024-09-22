@@ -3,7 +3,9 @@ package definedentity.xenon.vec;
 import definedentity.xenon.render.CCRenderState;
 import definedentity.xenon.render.pipeline.IVertexOperation;
 
-/** Abstract supertype for any 3D vector transformation */
+/**
+ * Abstract supertype for any 3D vector transformation
+ */
 public abstract class Transformation extends ITransformation<Vector3, Transformation> implements IVertexOperation {
 
     public static final int operationIndex = IVertexOperation.registerOperation();
