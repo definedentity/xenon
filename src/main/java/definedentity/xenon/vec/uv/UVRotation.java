@@ -1,19 +1,16 @@
 package definedentity.xenon.vec.uv;
 
 import definedentity.xenon.math.MathHelper;
-import org.jetbrains.annotations.Nullable;
-
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import org.jetbrains.annotations.Nullable;
 
 public class UVRotation extends UVTransformation {
 
     public double angle;
 
-    /**
-     * @param angle The angle to rotate counterclockwise in radians
-     */
+    /** @param angle The angle to rotate counterclockwise in radians */
     public UVRotation(double angle) {
         this.angle = angle;
     }
@@ -36,8 +33,7 @@ public class UVRotation extends UVTransformation {
         return new UVRotation(-angle);
     }
 
-    @Nullable
-    @Override
+    @Nullable @Override
     public UVTransformation merge(UVTransformation next) {
         if (next instanceof UVRotation) {
             return new UVRotation(angle + ((UVRotation) next).angle);

@@ -9,8 +9,7 @@ public class Rectangle4i implements Copyable<Rectangle4i> {
     public int w;
     public int h;
 
-    public Rectangle4i() {
-    }
+    public Rectangle4i() {}
 
     public Rectangle4i(int x, int y, int w, int h) {
         this.x = x;

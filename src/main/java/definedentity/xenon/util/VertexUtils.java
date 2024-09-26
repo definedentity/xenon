@@ -4,11 +4,10 @@ import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormatElement;
 import definedentity.xenon.model.IVertexConsumer;
-import net.minecraft.client.renderer.block.model.BakedQuad;
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class VertexUtils {
 
@@ -102,11 +101,9 @@ public class VertexUtils {
                 float f = i < from.length ? from[i] : 0;
                 if (type == VertexFormatElement.Type.FLOAT) {
                     bits = Float.floatToRawIntBits(f);
-                } else if (
-                        type == VertexFormatElement.Type.UBYTE ||
-                                type == VertexFormatElement.Type.USHORT ||
-                                type == VertexFormatElement.Type.UINT
-                ) {
+                } else if (type == VertexFormatElement.Type.UBYTE
+                        || type == VertexFormatElement.Type.USHORT
+                        || type == VertexFormatElement.Type.UINT) {
                     bits = Math.round(f * mask);
                 } else {
                     bits = Math.round(f * (mask >> 1));

@@ -30,8 +30,7 @@ public class Scale extends Transformation {
     }
 
     @Override
-    public void applyN(Vector3 normal) {
-    }
+    public void applyN(Vector3 normal) {}
 
     @Override
     public void apply(Matrix4 mat) {
@@ -60,7 +59,8 @@ public class Scale extends Transformation {
     @Override
     public String toString() {
         MathContext cont = new MathContext(4, RoundingMode.HALF_UP);
-        return "Scale(" + new BigDecimal(factor.x, cont) + ", " + new BigDecimal(factor.y, cont) + ", " + new BigDecimal(factor.z, cont) + ")";
+        return "Scale(" + new BigDecimal(factor.x, cont) + ", " + new BigDecimal(factor.y, cont) + ", "
+                + new BigDecimal(factor.z, cont) + ")";
     }
 
     @Override

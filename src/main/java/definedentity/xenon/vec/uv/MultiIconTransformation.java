@@ -8,8 +8,8 @@ import org.jetbrains.annotations.Nullable;
 public class MultiIconTransformation extends UVTransformation {
 
     public TextureAtlasSprite[] icons;
-    @Nullable
-    private TextureAtlasSprite icon;
+
+    @Nullable private TextureAtlasSprite icon;
 
     public MultiIconTransformation(TextureAtlasSprite... icons) {
         this.icons = icons;

@@ -1,5 +1,7 @@
 package definedentity.xenon.model;
 
+import static java.util.Objects.requireNonNull;
+
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import definedentity.xenon.math.InterpHelper;
@@ -12,8 +14,6 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * A simple easy to manipulate quad format. Can be reset and then used on a different format.
@@ -41,11 +41,8 @@ public class Quad implements IVertexProducer, IVertexConsumer {
     private final Vector3 t = new Vector3();
     private final Cuboid6 c = new Cuboid6();
 
-    /**
-     * Use this if you reset the quad each time you use it.
-     */
-    public Quad() {
-    }
+    /** Use this if you reset the quad each time you use it. */
+    public Quad() {}
 
     /**
      * use this if you want to initialize the quad with a format.
@@ -134,7 +131,7 @@ public class Quad implements IVertexProducer, IVertexConsumer {
      * Used to reset the interpolation values inside the provided helper.
      *
      * @param helper The helper.
-     * @param s      The axis. side >> 1;
+     * @param s The axis. side >> 1;
      * @return The same helper.
      */
     public InterpHelper resetInterp(InterpHelper helper, int s) {
@@ -142,8 +139,7 @@ public class Quad implements IVertexProducer, IVertexConsumer {
                 vertices[0].dx(s), vertices[0].dy(s),
                 vertices[1].dx(s), vertices[1].dy(s),
                 vertices[2].dx(s), vertices[2].dy(s),
-                vertices[3].dx(s), vertices[3].dy(s)
-        );
+                vertices[3].dx(s), vertices[3].dy(s));
         return helper;
     }
 
@@ -172,8 +168,7 @@ public class Quad implements IVertexProducer, IVertexConsumer {
     }
 
     /**
-     * Re-calculates the Orientation of this quad,
-     * optionally the normal vector.
+     * Re-calculates the Orientation of this quad, optionally the normal vector.
      *
      * @param setNormal If the normal vector should be updated.
      */
@@ -258,9 +253,7 @@ public class Quad implements IVertexProducer, IVertexConsumer {
         full = false;
     }
 
-    /**
-     * Rewind this Quad without completely resetting it.
-     */
+    /** Rewind this Quad without completely resetting it. */
     public void rewind() {
         vertexIndex = 0;
         full = false;
@@ -292,16 +285,12 @@ public class Quad implements IVertexProducer, IVertexConsumer {
         return new BakedQuad(packedData, tintIndex, orientation, sprite, diffuseLighting);
     }
 
-    /**
-     * A simple vertex format.
-     */
+    /** A simple vertex format. */
     public static class Vertex {
 
         public CachedFormat format;
 
-        /**
-         * The raw data.
-         */
+        /** The raw data. */
         public float[][] raw;
 
         // References to the arrays inside raw.
@@ -363,12 +352,29 @@ public class Quad implements IVertexProducer, IVertexConsumer {
         }
 
         // @formatter:off
-        public final float[] vec() { return requireNonNull(vec, "Vertex does not have the position element.");}
-        public final float[] normal() { return requireNonNull(normal, "Vertex does not have the normal element.");}
-        public final float[] color() { return requireNonNull(color, "Vertex does not have the colour element.");}
-        public final float[] uv() { return requireNonNull(uv, "Vertex does not have the uv element.");}
-        public final float[] overlay() { return requireNonNull(overlay, "Vertex does not have the overlay element.");}
-        public final float[] lightmap() { return requireNonNull(lightmap, "Vertex does not have the lightmap element.");}
+        public final float[] vec() {
+            return requireNonNull(vec, "Vertex does not have the position element.");
+        }
+
+        public final float[] normal() {
+            return requireNonNull(normal, "Vertex does not have the normal element.");
+        }
+
+        public final float[] color() {
+            return requireNonNull(color, "Vertex does not have the colour element.");
+        }
+
+        public final float[] uv() {
+            return requireNonNull(uv, "Vertex does not have the uv element.");
+        }
+
+        public final float[] overlay() {
+            return requireNonNull(overlay, "Vertex does not have the overlay element.");
+        }
+
+        public final float[] lightmap() {
+            return requireNonNull(lightmap, "Vertex does not have the lightmap element.");
+        }
         // @formatter:on
 
         /**
@@ -403,7 +409,7 @@ public class Quad implements IVertexProducer, IVertexConsumer {
          * Interpolates the new color values for this Vertex using the others as a reference.
          *
          * @param interpHelper The InterpHelper to use.
-         * @param others       The other Vertices to use as a template.
+         * @param others The other Vertices to use as a template.
          * @return The same Vertex.
          */
         public Vertex interpColorFrom(InterpHelper interpHelper, Vertex[] others) {
@@ -424,7 +430,7 @@ public class Quad implements IVertexProducer, IVertexConsumer {
          * Interpolates the new UV values for this Vertex using the others as a reference.
          *
          * @param interpHelper The InterpHelper to use.
-         * @param others       The other Vertices to use as a template.
+         * @param others The other Vertices to use as a template.
          * @return The same Vertex.
          */
         public Vertex interpUVFrom(InterpHelper interpHelper, Vertex[] others) {
@@ -444,7 +450,7 @@ public class Quad implements IVertexProducer, IVertexConsumer {
          * Interpolates the new LightMap values for this Vertex using the others as a reference.
          *
          * @param interpHelper The InterpHelper to use.
-         * @param others       The other Vertices to use as a template.
+         * @param others The other Vertices to use as a template.
          * @return The same Vertex.
          */
         public Vertex interpLightMapFrom(InterpHelper interpHelper, Vertex[] others) {

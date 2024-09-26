@@ -19,22 +19,21 @@ public class Vector3 implements Copyable<Vector3> {
 
     public static final Vector3 ZERO = new Vector3(0, 0, 0);
     public static final Vector3 CENTER = new Vector3(0.5, 0.5, 0.5);
-    //@formatter:off
-    public static final Vector3 ONE =   new Vector3( 1, 1, 1);
-    public static final Vector3 X_POS = new Vector3( 1, 0, 0);
+    // @formatter:off
+    public static final Vector3 ONE = new Vector3(1, 1, 1);
+    public static final Vector3 X_POS = new Vector3(1, 0, 0);
     public static final Vector3 X_NEG = new Vector3(-1, 0, 0);
-    public static final Vector3 Y_POS = new Vector3( 0, 1, 0);
-    public static final Vector3 Y_NEG = new Vector3( 0,-1, 0);
-    public static final Vector3 Z_POS = new Vector3( 0, 0, 1);
-    public static final Vector3 Z_NEG = new Vector3( 0, 0,-1);
-    //@formatter:on
+    public static final Vector3 Y_POS = new Vector3(0, 1, 0);
+    public static final Vector3 Y_NEG = new Vector3(0, -1, 0);
+    public static final Vector3 Z_POS = new Vector3(0, 0, 1);
+    public static final Vector3 Z_NEG = new Vector3(0, 0, -1);
+    // @formatter:on
 
     public double x;
     public double y;
     public double z;
 
-    public Vector3() {
-    }
+    public Vector3() {}
 
     public Vector3(double d, double d1, double d2) {
         x = d;
@@ -134,11 +133,11 @@ public class Vector3 implements Copyable<Vector3> {
     }
 
     public double[] toArrayD() {
-        return new double[] { x, y, z };
+        return new double[] {x, y, z};
     }
 
     public float[] toArrayF() {
-        return new float[] { (float) x, (float) y, (float) z };
+        return new float[] {(float) x, (float) y, (float) z};
     }
 
     public Vector3 set(double x1, double y1, double z1) {
@@ -391,8 +390,7 @@ public class Vector3 implements Copyable<Vector3> {
         return Math.acos(copy().normalize().dotProduct(vec.copy().normalize()));
     }
 
-    @Nullable
-    public Vector3 YZintercept(Vector3 end, double px) {
+    @Nullable public Vector3 YZintercept(Vector3 end, double px) {
         double dx = end.x - x;
         double dy = end.y - y;
         double dz = end.z - z;
@@ -416,8 +414,7 @@ public class Vector3 implements Copyable<Vector3> {
         return this;
     }
 
-    @Nullable
-    public Vector3 XZintercept(Vector3 end, double py) {
+    @Nullable public Vector3 XZintercept(Vector3 end, double py) {
         double dx = end.x - x;
         double dy = end.y - y;
         double dz = end.z - z;
@@ -441,8 +438,7 @@ public class Vector3 implements Copyable<Vector3> {
         return this;
     }
 
-    @Nullable
-    public Vector3 XYintercept(Vector3 end, double pz) {
+    @Nullable public Vector3 XYintercept(Vector3 end, double pz) {
         double dx = end.x - x;
         double dy = end.y - y;
         double dz = end.z - z;
@@ -528,7 +524,9 @@ public class Vector3 implements Copyable<Vector3> {
      * @return true if this is equal to v within +-1E-5
      */
     public boolean equalsT(Vector3 v) {
-        return MathHelper.between(x - 1E-5, v.x, x + 1E-5) && MathHelper.between(y - 1E-5, v.y, y + 1E-5) && MathHelper.between(z - 1E-5, v.z, z + 1E-5);
+        return MathHelper.between(x - 1E-5, v.x, x + 1E-5)
+                && MathHelper.between(y - 1E-5, v.y, y + 1E-5)
+                && MathHelper.between(z - 1E-5, v.z, z + 1E-5);
     }
 
     @Override
@@ -539,7 +537,8 @@ public class Vector3 implements Copyable<Vector3> {
     @Override
     public String toString() {
         MathContext cont = new MathContext(4, RoundingMode.HALF_UP);
-        return "Vector3(" + new BigDecimal(x, cont) + ", " + new BigDecimal(y, cont) + ", " + new BigDecimal(z, cont) + ")";
+        return "Vector3(" + new BigDecimal(x, cont) + ", " + new BigDecimal(y, cont) + ", " + new BigDecimal(z, cont)
+                + ")";
     }
 
     public Translation translation() {
