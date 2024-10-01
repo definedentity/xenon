@@ -10,6 +10,7 @@ import definedentity.xenon.render.model.ModelMaterial;
 import definedentity.xenon.render.pipeline.IVertexOperation;
 import definedentity.xenon.render.pipeline.IVertexSource;
 import definedentity.xenon.render.pipeline.attribute.*;
+import definedentity.xenon.render.pipeline.attribute.AttributeKey.AttributeKeyRegistry;
 import definedentity.xenon.util.Copyable;
 import definedentity.xenon.util.VectorUtils;
 import definedentity.xenon.vec.*;
@@ -459,8 +460,7 @@ public class CCModel implements IVertexSource, Copyable<CCModel> {
         verts = Arrays.copyOf(verts, newLen);
         for (int i = 0; i < attributes.size(); i++) {
             if (attributes.get(i) != null) {
-                attributes.set(
-                        i, AttributeKey.AttributeKeyRegistry.getAttributeKey(i).copy(attributes.get(i), newLen));
+                attributes.set(i, AttributeKeyRegistry.getAttributeKey(i).copy(attributes.get(i), newLen));
             }
         }
 
@@ -593,7 +593,7 @@ public class CCModel implements IVertexSource, Copyable<CCModel> {
 
         for (int i = 0; i < src.attributes.size(); i++) {
             if (src.attributes.get(i) != null) {
-                AttributeKey<?> key = AttributeKey.AttributeKeyRegistry.getAttributeKey(i);
+                AttributeKey<?> key = AttributeKeyRegistry.getAttributeKey(i);
                 dst.allocateAttr(key);
                 dst.attributes.set(
                         i,
@@ -665,7 +665,7 @@ public class CCModel implements IVertexSource, Copyable<CCModel> {
             dst.verts[di] = src.verts[si].copy();
             for (int a = 0; a < src.attributes.size(); a++) {
                 if (src.attributes.get(a) != null) {
-                    AttributeKey<?> key = AttributeKey.AttributeKeyRegistry.getAttributeKey(a);
+                    AttributeKey<?> key = AttributeKeyRegistry.getAttributeKey(a);
                     dst.attributes.set(
                             a,
                             key.copyRange(

@@ -13,12 +13,16 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CCModelLibrary {
 
-    public static final CCModel icosahedron4;
-    public static final CCModel icosahedron7;
+    public static CCModel icosahedron4;
+    public static CCModel icosahedron7;
 
     private static int i;
 
     static {
+        generateIcosahedron();
+    }
+
+    private static void generateIcosahedron() {
         Vector3[] verts = new Vector3[12];
 
         verts[0] = new Vector3(-1, phi, 0);

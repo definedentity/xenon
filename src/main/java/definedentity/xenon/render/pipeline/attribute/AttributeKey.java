@@ -7,6 +7,7 @@ import definedentity.xenon.render.pipeline.IVertexSource;
 import definedentity.xenon.render.pipeline.VertexAttribute;
 import definedentity.xenon.util.ArrayUtils;
 import definedentity.xenon.util.Copyable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,7 +43,7 @@ public abstract class AttributeKey<T> {
             @Override
             public T copy(T src, int length) {
                 T dst = createDefault(length);
-                ArrayUtils.arrayCopy(src, 0, dst, 0, ((Object[]) src).length);
+                ArrayUtils.arrayCopy(src, 0, dst, 0, Array.getLength(src));
                 return dst;
             }
 
@@ -91,7 +92,7 @@ public abstract class AttributeKey<T> {
         private static final Map<String, AttributeKey<?>> nameMap = new HashMap<>();
         private static final List<AttributeKey<?>> attributeKeys = new ArrayList<>();
 
-        private static int registerAttributeKey(AttributeKey<?> attr) {
+        private static synchronized int registerAttributeKey(AttributeKey<?> attr) {
             if (nameMap.containsKey(attr.name)) {
                 throw new IllegalArgumentException("Duplicate registration of attribute with name: " + attr.name);
             }

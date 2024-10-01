@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import net.covers1624.quack.collection.StreamableIterable;
 import org.jetbrains.annotations.Nullable;
 
 public class TransformationList extends Transformation {
@@ -30,8 +31,8 @@ public class TransformationList extends Transformation {
     }
 
     public TransformationList(TransformationList other) {
-        transformations = (ArrayList<Transformation>)
-                other.transformations.stream().map(Copyable::copy).toList();
+        transformations =
+                StreamableIterable.of(other.transformations).map(Copyable::copy).toList();
         mat = other.mat;
     }
 

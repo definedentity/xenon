@@ -429,16 +429,13 @@ public class Matrix4 extends Transformation {
 
     public Matrix4 set(PoseStack stack) {
         ByteBuffer bb = ByteBuffer.allocateDirect(16 * 4);
-        bb.order(ByteOrder.nativeOrder()); // Use native byte order for performance
+        bb.order(ByteOrder.nativeOrder());
 
-        // Create a FloatBuffer from the ByteBuffer
         FloatBuffer floatBuffer = bb.asFloatBuffer();
 
-        // Store the Mojang matrix elements into the FloatBuffer
         stack.last().pose().store(floatBuffer);
 
-        // Create a new JOML matrix and load the elements from the FloatBuffer
-        floatBuffer.rewind(); // Rewind the buffer to read from the start
+        floatBuffer.rewind();
 
         return set(new Matrix4f(floatBuffer));
     }

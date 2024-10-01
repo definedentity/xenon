@@ -3,7 +3,7 @@
 	"package": "definedentity.xenon.internal.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"LevelRendererMixin"
+		"MinecraftMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

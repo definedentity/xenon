@@ -286,8 +286,7 @@ public class OBJParser {
         return vec3;
     }
 
-    private static definedentity.xenon.vec.Vector3 applyN(
-            @Nullable definedentity.xenon.vec.Transformation transformation, definedentity.xenon.vec.Vector3 vec3) {
+    private static Vector3 applyN(@Nullable Transformation transformation, Vector3 vec3) {
         if (transformation != null) {
             transformation.applyN(vec3);
         }

@@ -2,6 +2,7 @@ package definedentity.xenon.vec.uv;
 
 import definedentity.xenon.util.Copyable;
 import java.util.ArrayList;
+import net.covers1624.quack.collection.StreamableIterable;
 
 public class UVTransformationList extends UVTransformation {
 
@@ -20,8 +21,8 @@ public class UVTransformationList extends UVTransformation {
     }
 
     public UVTransformationList(UVTransformationList other) {
-        transformations = (ArrayList<UVTransformation>)
-                other.transformations.stream().map(Copyable::copy).toList();
+        transformations =
+                StreamableIterable.of(other.transformations).map(Copyable::copy).toList();
 
         compact();
     }

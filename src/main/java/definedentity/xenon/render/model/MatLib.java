@@ -1,5 +1,6 @@
 package definedentity.xenon.render.model;
 
+import definedentity.xenon.util.ResourceUtils;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.resources.ResourceLocation;
@@ -18,7 +19,7 @@ public class MatLib {
     public static MatLib parse(ResourceProvider resourceProvider, ResourceLocation loc) {
         MatLib matLib = new MatLib();
         ModelMaterial curr = null;
-        for (String line : definedentity.xenon.util.ResourceUtils.loadResource(resourceProvider, loc)) {
+        for (String line : ResourceUtils.loadResource(resourceProvider, loc)) {
             line = line.replaceAll("\\s+", " ").trim();
             if (line.isEmpty() || line.startsWith("#")) continue;
             String[] splits = line.split(" ", 2);

@@ -2,10 +2,6 @@ package definedentity.xenon.render;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.mojang.blaze3d.vertex.Tesselator;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.blaze3d.vertex.VertexFormat;
 import definedentity.xenon.colour.Colour;
 import definedentity.xenon.colour.ColourRGBA;
 import definedentity.xenon.model.CachedFormat;

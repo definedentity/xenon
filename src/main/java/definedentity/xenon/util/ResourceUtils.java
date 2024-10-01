@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.stream.Collectors;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ReloadableResourceManager;
@@ -78,7 +77,7 @@ public class ResourceUtils {
         try {
             Resource resource = resourceProvider.getResource(loc);
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()))) {
-                return reader.lines().collect(Collectors.toList());
+                return reader.lines().toList();
             }
         } catch (IOException ex) {
             throw new RuntimeException("Failed to load MTL file: " + loc, ex);

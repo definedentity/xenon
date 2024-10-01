@@ -6,7 +6,7 @@ import definedentity.xenon.render.CCRenderState;
 public interface IVertexOperation {
 
     static int registerOperation() {
-        return VertexOperationRegistry.nextOperationIndex++;
+        return VertexOperationRegistry.nextOperationIndex();
     }
 
     static int operationCount() {
@@ -31,5 +31,9 @@ public interface IVertexOperation {
     class VertexOperationRegistry {
 
         static int nextOperationIndex;
+
+        private static synchronized int nextOperationIndex() {
+            return VertexOperationRegistry.nextOperationIndex++;
+        }
     }
 }

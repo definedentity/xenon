@@ -151,11 +151,12 @@ public class Cuboid6 implements Copyable<Cuboid6> {
         return expand(vec.x, vec.y, vec.z);
     }
 
-    public void expandSide(Direction side, int amount) {
+    public Cuboid6 expandSide(Direction side, int amount) {
         switch (side.getAxisDirection()) {
             case NEGATIVE -> min.add(Vector3.fromVec3i(side.getNormal()).multiply(amount));
             case POSITIVE -> max.add(Vector3.fromVec3i(side.getNormal()).multiply(amount));
         }
+        return this;
     }
 
     public Cuboid6 shrinkSide(Direction side, int amount) {
